@@ -1,0 +1,129 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.card-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 16px;
+    line-height: 24px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    box-sizing: border-box;
+    transition: opacity 0.2s ease-out;
+    opacity: 1;
+}
+
+.card:hover .card-info {
+    opacity: 0;
+}
+
+.selected-card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.selected-card-info {
+    max-width: 80%;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    line-height: 36px;
+    text-shadow: none;
+}
+
+.selected-card-info h5 {
+    margin-bottom: 10px;
+    color: #777;
+    font-size: 16px;
+    line-height: 24px;
+    text-shadow: none;
+}
+
+.selected-card-info h2 {
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 36px;
+    line-height: 48px;
+    text-shadow: none;
+}
+
+.selected-card button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+}
+
+.selected-card button::before,
+.selected-card button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 2px;
+    background-color: #333;
+    transform: translate(-50%, -50%);
+}
+
+.selected-card button::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.selected-card button::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.selected-card button:hover::before,
+.selected-card button:hover::after {
+    background-color: #777;
+}
